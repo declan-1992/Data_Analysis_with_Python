@@ -1,0 +1,15 @@
+import codecademylib3_seaborn
+import pandas as pd
+import glob
+
+student_files = glob.glob("exams*.csv")   ##  glob together all CSV files exams*.csv
+
+df_list = []    ## create empty list
+
+for name in student_files:  ## loop through all files
+  data = pd.read_csv(name)     ## add data to a DataFrame
+  df_list.append(data)     ## append the data in each file to the empty list 
+   
+students = pd.concat(df_list)    ## Concatenate all DataFrames into one DataFrame
+
+print(students)  ## Print DataFrame
